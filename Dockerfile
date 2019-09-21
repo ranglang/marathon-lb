@@ -2,6 +2,7 @@ FROM arm64v8/debian
 
 LABEL LAST_MODIFIED=20190723
 
+RUN sed -i "s@http://deb.debian.org@http://mirrors.163.com@g" /etc/apt/sources.list
 # runtime dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
         ca-certificates \
