@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM arm64v8/debian
 
 LABEL LAST_MODIFIED=20190723
 
@@ -24,8 +24,8 @@ ENV TINI_VERSION=v0.18.0 \
 RUN set -x \
     && apt-get update && apt-get install -y --no-install-recommends dirmngr gpg wget \
         && rm -rf /var/lib/apt/lists/* \
-    && wget -O tini "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-amd64" \
-    && wget -O tini.asc "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-amd64.asc" \
+    && wget -O tini "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-arm64" \
+    && wget -O tini.asc "https://github.com/krallin/tini/releases/download/$TINI_VERSION/tini-arm64.asc" \
     && export GNUPGHOME="$(mktemp -d)" \
     && gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$TINI_GPG_KEY" \
     || gpg --keyserver pool.sks-keyservers.net --recv-keys "$TINI_GPG_KEY" \
