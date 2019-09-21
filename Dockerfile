@@ -73,7 +73,7 @@ RUN set -x \
     && rm haproxy.tar.gz \
     && make -C /usr/src/haproxy \
         TARGET=linux-glibc \
-        ARCH=x86_64 \
+        ARCH=arm64 \
         USE_LUA=1 \
         LUA_INC=/usr/include/lua5.3/ \
         USE_OPENSSL=1 \
