@@ -91,7 +91,7 @@ RUN set -x \
 # package is already installed. Combine with --force-reinstall to ensure we get
 # a local package even if the system package is up-to-date as the system package
 # will probably be uninstalled with the build dependencies.
-    && pip3 install --no-cache --upgrade --force-reinstall -r /marathon-lb/requirements.txt \
+    && pip3 install  --default-timeout=1000  --no-cache --upgrade --force-reinstall -r /marathon-lb/requirements.txt \
     \
     && apt-get purge -y --auto-remove $buildDeps \
 # Purge of python3-dev will delete python3 also
