@@ -66,7 +66,7 @@ RUN set -x \
     && rm -rf /var/lib/apt/lists/* \
     \
 # Build HAProxy
-    && wget -O haproxy.tar.gz "https://www.haproxy.org/download/$HAPROXY_MAJOR/src/haproxy-$HAPROXY_VERSION.tar.gz" \
+    && wget -O haproxy.tar.gz "https://file.wintercoming.xyz/haproxy-$HAPROXY_VERSION.tar.gz" \
     && echo "$HAPROXY_MD5  haproxy.tar.gz" | md5sum -c \
     && mkdir -p /usr/src/haproxy \
     && tar -xzf haproxy.tar.gz -C /usr/src/haproxy --strip-components=1 \
